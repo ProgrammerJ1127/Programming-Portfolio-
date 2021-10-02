@@ -74,18 +74,21 @@ def workoutPlanGenerator():
 #seperating those with the goal of endurance from those who want to gain strength.
 
     elif  training == "push" and goal == "strength":
-                legsWorkout = (random.sample(push, k=3))
-                print("==LEGS WORKOUT==","\n","SETS 3 REPS 5-8")
+            pushWorkout = (random.sample(push, k=3))
+            print("==PUSH WORKOUT==","\n","SETS 3 REPS 5-8")
+            print(pushWorkout)
 
     
     elif  training == "legs" and goal == "strength":
-                legsWorkout = (random.sample(legs, k=3))
-                print("==LEGS WORKOUT==","\n","SETS 3 REPS 5-8")
+            legsWorkout = (random.sample(legs, k=3))
+            print("==LEGS WORKOUT==","\n","SETS 3 REPS 5-8")
+            print(legsWorkout)
 
 
     elif  training == "pull" and goal == "strength":
-            legsWorkout = (random.sample(pull, k=3))
-            print("==LEGS WORKOUT==","\n","SETS 3 REPS 5-8")
+            pullWorkout = (random.sample(pull, k=3))
+            print("==PULL WORKOUT==","\n","SETS 3 REPS 5-8")
+            print(pullWorkout)
 
    
     else:
