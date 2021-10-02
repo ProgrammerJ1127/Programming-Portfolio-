@@ -1,0 +1,100 @@
+import random 
+
+push = []
+pull = []
+abs_muscle = []
+legs = []
+
+def main():
+    #muscle groups will store information received from user into sets, the un-ordered and non-replicating data type will make it easier to control this program.
+    keepAdding = "y"
+    print("To start you will be adding excercies for specific muscle groups to get started with your plan.")
+    
+    #We will be asking the user to pick which muscle group they want to assign exercises to. 
+    muscleGroup = input("\nAre you doing push, pull or legs today?: ")
+    while keepAdding == "y":
+        if  muscleGroup == "push":
+            excercise = input("enter exercises for your muscle group: ")
+            push.append(excercise)
+            keepAdding = input("Do you want to add another exercise?: (y/n)")
+            
+        
+        elif muscleGroup == "pull":
+            excercise = input(" enter exercises for your selected muscle group: ")
+            pull.append(excercise)
+            keepAdding = input("Do you want to add another exercise?: (y/n)")
+        
+        elif muscleGroup == "legs":
+            excercise = input(" enter exercises for your selected muscle group: ")
+            legs.append(excercise)
+            keepAdding = input("Do you want to add another exercise?: (y/n)")
+        
+        
+        else:
+            print("invalid entry")
+            break
+    
+    moreExercises = input("Would you like to add exercises to any other muscle groups?:(y/n) ")
+    if moreExercises == "n":
+        return
+        
+    else:
+            main()
+    
+main()
+
+
+#This function will take the input from the user in the previous funciton and generate a random workout with sets and reps.
+
+def workoutPlanGenerator():
+    intensity1 = ("RPE 7-10")
+    intensity2 = ("RPE 6-8")
+    goal = input("Are you training for endurance or strength?: ")
+    if goal == "endurance":
+        print("Stay within the", intensity1,"range, you are going to want to keep rest time periods low and activity periods high.")
+    else:
+        print("Stay within the",intensity2,"range, you will want to allow yourself ot have more rest during strength workouts.")
+    
+
+    training = input("What muscle group are you training today?: ")
+    if  training == "push" and goal == "endurance":
+        pushWorkout =(random.sample(push, k=3))
+        print("==PUSH WORKOUT==","\n","SETS 4 REPS 15")
+        print(pushWorkout)
+    
+    elif  training == "legs":
+        legsWorkout = (random.sample(legs, k=3))
+        print("==LEGS WORKOUT==","\n","SETS 4 REPS 15")
+        print(legsWorkout)
+
+    elif  training == "pull":
+        pullWorkout = (random.sample(pull, k=3))
+        print("==PULL WORKOUT==","\n","SETS 4 REPS 15")
+        print(pullWorkout)
+#seperating those with the goal of endurance from those who want to gain strength.
+
+    elif  training == "push" and goal == "strength":
+                legsWorkout = (random.sample(push, k=3))
+                print("==LEGS WORKOUT==","\n","SETS 3 REPS 5-8")
+
+    
+    elif  training == "legs" and goal == "strength":
+                legsWorkout = (random.sample(legs, k=3))
+                print("==LEGS WORKOUT==","\n","SETS 3 REPS 5-8")
+
+
+    elif  training == "pull" and goal == "strength":
+            legsWorkout = (random.sample(pull, k=3))
+            print("==LEGS WORKOUT==","\n","SETS 3 REPS 5-8")
+
+   
+    else:
+        return
+
+    
+
+
+
+workoutPlanGenerator()
+
+
